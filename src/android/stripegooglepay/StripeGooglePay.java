@@ -131,10 +131,10 @@ public class StripeGooglePay extends CordovaPlugin {
     }
     this.stripePublishableKey = key;
     this.paymentsClient = Wallet.getPaymentsClient(
-        this.cordova.getActivity().getApplicationContext(),
-        new Wallet.WalletOptions.Builder()
-            .setEnvironment(this.environment)
-            .build()
+      this.cordova.getActivity().getApplicationContext(),
+      new Wallet.WalletOptions.Builder()
+        .setEnvironment(this.environment)
+        .build()
     );
     this.callback.success();
   }
@@ -162,46 +162,46 @@ public class StripeGooglePay extends CordovaPlugin {
       });
   }
 
-  private void requestPayment (String totalPrice, String currency) {
+  private void requestPayment(String totalPrice, String currency) {
     PaymentDataRequest request = this.createPaymentDataRequest(totalPrice, currency);
     Activity activity = this.cordova.getActivity();
     if (request != null) {
       cordova.setActivityResultCallback(this);
       AutoResolveHelper.resolveTask(
-          this.paymentsClient.loadPaymentData(request),
-          activity,
-          LOAD_PAYMENT_DATA_REQUEST_CODE);
+        this.paymentsClient.loadPaymentData(request),
+        activity,
+        LOAD_PAYMENT_DATA_REQUEST_CODE);
     }
   }
 
   private PaymentMethodTokenizationParameters createTokenisationParameters() {
     return PaymentMethodTokenizationParameters.newBuilder()
-        .setPaymentMethodTokenizationType(WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
-        .addParameter("gateway", "stripe")
-        .addParameter("stripe:publishableKey", this.stripePublishableKey)
-        .addParameter("stripe:version", "5.1.0")
-        .build();
+      .setPaymentMethodTokenizationType(WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
+      .addParameter("gateway", "stripe")
+      .addParameter("stripe:publishableKey", this.stripePublishableKey)
+      .addParameter("stripe:version", "8.4.0")
+      .build();
   }
 
   private PaymentDataRequest createPaymentDataRequest(String totalPrice, String currency) {
     PaymentDataRequest.Builder request =
-        PaymentDataRequest.newBuilder()
-            .setTransactionInfo(
-                TransactionInfo.newBuilder()
-                    .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
-                    .setTotalPrice(totalPrice)
-                    .setCurrencyCode(currency)
-                    .build())
-            .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_CARD)
-            .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_TOKENIZED_CARD)
-            .setCardRequirements(
-                CardRequirements.newBuilder()
-                    .addAllowedCardNetworks(Arrays.asList(
-                        WalletConstants.CARD_NETWORK_AMEX,
-                        WalletConstants.CARD_NETWORK_DISCOVER,
-                        WalletConstants.CARD_NETWORK_VISA,
-                        WalletConstants.CARD_NETWORK_MASTERCARD))
-                    .build());
+      PaymentDataRequest.newBuilder()
+        .setTransactionInfo(
+          TransactionInfo.newBuilder()
+            .setTotalPriceStatus(WalletConstants.TOTAL_PRICE_STATUS_FINAL)
+            .setTotalPrice(totalPrice)
+            .setCurrencyCode(currency)
+            .build())
+        .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_CARD)
+        .addAllowedPaymentMethod(WalletConstants.PAYMENT_METHOD_TOKENIZED_CARD)
+        .setCardRequirements(
+          CardRequirements.newBuilder()
+            .addAllowedCardNetworks(Arrays.asList(
+              WalletConstants.CARD_NETWORK_AMEX,
+              WalletConstants.CARD_NETWORK_DISCOVER,
+              WalletConstants.CARD_NETWORK_VISA,
+              WalletConstants.CARD_NETWORK_MASTERCARD))
+            .build());
 
     request.setPaymentMethodTokenizationParameters(this.createTokenisationParameters());
     return request.build();
