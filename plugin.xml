@@ -3,15 +3,15 @@
   xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
   id="cordova-plugin-stripe-google-pay"
-  version="0.0.1"
+  version="0.1.0"
   >
     <name>cordova-plugin-stripe-google-pay</name>
     <description>Cordova plugin for Stripe - Google Pay integration</description>
     <license>MIT</license>
     <keywords>cordova,stripe,google,pay</keywords>
-    <author>Asanga Dev</author>
-    <repo>https://github.com/asangadev/cordova-plugin-stripe-google-pay.git</repo>
-    <issue>https://github.com/asangadev/cordova-plugin-stripe-google-pay/issues</issue>
+    <author>Dynamify</author>
+    <repo>https://github.com/dynamifylimited/cordova-plugin-stripe-google-pay.git</repo>
+    <issue>https://github.com/dynamifylimited/cordova-plugin-stripe-google-pay/issues</issue>
     <js-module src="www/stripe-google-pay.js" name="sgap">
         <clobbers target="sgap" />
     </js-module>
@@ -30,9 +30,9 @@
             </feature>
         </config-file>
         <source-file src="src/android/StripeGooglePay/StripeGooglePay.java" target-dir="src/android/StripeGooglePay" />
-        <framework src="com.stripe:stripe-android:6.1.2" />
-        <framework src="com.google.android.gms:play-services-wallet:16.0.0" />
-        <framework src="com.android.support:support-v4:27.0.2" />
-        <framework src="com.android.support:appcompat-v7:24.1.1" />
+        <framework src="com.stripe:stripe-android:8.4.0" />
+        <framework src="com.google.android.gms:play-services-wallet:16.0.1" />
+        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION" />
+        <framework src="com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION" />
     </platform>
 </plugin>
