@@ -4,7 +4,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   id="cordova-plugin-stripe-google-pay"
   version="0.1.0"
-  >
+>
     <name>cordova-plugin-stripe-google-pay</name>
     <description>Cordova plugin for Stripe - Google Pay integration</description>
     <license>MIT</license>
@@ -30,9 +30,12 @@
             </feature>
         </config-file>
         <source-file src="src/android/StripeGooglePay/StripeGooglePay.java" target-dir="src/android/StripeGooglePay" />
+
         <framework src="com.stripe:stripe-android:8.4.0" />
         <framework src="com.google.android.gms:play-services-wallet:16.0.1" />
-        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION" />
+        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_VERSION" />
         <framework src="com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION" />
+
+        <preference name="ANDROID_SUPPORT_VERSION" default="28.+" />
     </platform>
 </plugin>
