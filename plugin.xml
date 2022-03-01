@@ -31,7 +31,7 @@
         </config-file>
         <source-file src="src/android/StripeGooglePay/StripeGooglePay.java" target-dir="src/android/StripeGooglePay" />
 
-        <framework src="com.stripe:stripe-android:8.4.0" />
+        <framework src="com.stripe:stripe-android:16.1.0" />
         <framework src="com.google.android.gms:play-services-wallet:16.0.1" />
         <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_VERSION" />
         <framework src="com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION" />

@@ -179,7 +179,7 @@ public class StripeGooglePay extends CordovaPlugin {
       .setPaymentMethodTokenizationType(WalletConstants.PAYMENT_METHOD_TOKENIZATION_TYPE_PAYMENT_GATEWAY)
       .addParameter("gateway", "stripe")
       .addParameter("stripe:publishableKey", this.stripePublishableKey)
-      .addParameter("stripe:version", "8.4.0")
+      .addParameter("stripe:version", "16.1.0")
       .build();
   }
 
