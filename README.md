@@ -9,7 +9,7 @@ This plugin only supports Android.
 This plugin will add these dependencies to your build.gradle file:
 
     com.stripe:stripe-android:6.1.2
-    com.google.android.gms:play-services-wallet:16.0.0
+    com.google.android.gms:play-services-wallet:17.0.0
     com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION
     com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION
 
